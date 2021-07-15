@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="header-image" [ngStyle]="{backgroundImage: 'url(' + tickerDetails?.logo + ')' }"></div>
+    <mat-card-title>{{tickerDetails?.symbol}}</mat-card-title>
+    <mat-card-subtitle class="no-wrap">{{tickerDetails?.name}}</mat-card-subtitle>
+    <div class="full-width" fxLayout="row-reverse">
+      <button mat-mini-fab color="primary">
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-form-field style="margin-top: 15px" class="full-width" appearance="outline">
+      <mat-label>Country</mat-label>
+      <input readonly matInput [value]="tickerDetails?.country">
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>CEO</mat-label>
+      <input readonly matInput [value]="tickerDetails?.ceo">
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input readonly matInput [value]="tickerDetails?.phone">
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Industry</mat-label>
+      <input readonly matInput [value]="tickerDetails?.industry">
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Sector</mat-label>
+      <input readonly matInput [value]="tickerDetails?.sector">
+    </mat-form-field>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-actions>
+    <mat-chip-list>
+      <mat-chip *ngFor="let tag of tickerDetails?.tags">{{tag}}</mat-chip>
+    </mat-chip-list>
+  </mat-card-actions>
+</mat-card>

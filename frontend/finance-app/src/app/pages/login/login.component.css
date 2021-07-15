@@ -1,0 +1,31 @@
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 460px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.card-header{
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  font-size: 26px;
+}
+
+.input-field, .action-buttons{
+  width: 250px;
+}
+
+.action-buttons{
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}

@@ -1,0 +1,40 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center">
+
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div fxFlex="50" fxFlex.xs="80">
+      <form [formGroup]="form" (ngSubmit)="search()">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Company Symbol</mat-label>
+          <input type="email" matInput placeholder="Type in searched company" formControlName="symbol">
+          <button type="submit" mat-icon-button matSuffix>
+            <mat-icon>search</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </div>
+
+    <div fxFlex="10" fxFlex.xs="20" fxLayoutAlign="center">
+      <button mat-fab color="primary" matTooltip="Go to watchlist" matTooltipPosition="right"
+              matTooltipHideDelay="100000">
+        <mat-icon>list</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px" *ngIf="tickerDetails && chartData && !spinnerTrigger">
+
+    <div fxFlex="40" fxFlex.xs="100">
+      <app-company-card [tickerDetails]="tickerDetails"></app-company-card>
+    </div>
+
+    <div fxFlex="60" fxFlex.xs="100">
+      <app-company-chart [chartData]="chartData" [symbol]="tickerDetails.symbol"></app-company-chart>
+    </div>
+
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center" fxFlex="100" *ngIf="spinnerTrigger">
+    <mat-spinner></mat-spinner>
+  </div>
+
+</div>
