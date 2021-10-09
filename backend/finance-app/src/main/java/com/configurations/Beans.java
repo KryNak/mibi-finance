@@ -25,7 +25,7 @@ public class Beans {
     CommandLineRunner commandLineRunner(UsersRepository usersRepository, PasswordEncoder passwordEncoder){
         return args -> {
             User user = new User(
-                    1L, "User", passwordEncoder.encode("qwer1234"),
+                    1L, "user", passwordEncoder.encode("qwer1234"),
                     "User@gmail.com", SecurityHelpers.generateRefreshToken(), LocalDateTime.now().plusHours(12)
             );
 

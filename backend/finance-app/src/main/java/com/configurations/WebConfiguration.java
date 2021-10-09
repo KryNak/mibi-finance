@@ -10,12 +10,12 @@ public class WebConfiguration implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry corsRegistry) {
         corsRegistry.addMapping("/api/**")
-                .allowedOrigins("http://localhost:4200")
+                .allowedOrigins("*")
+                .allowedOriginPatterns("*")
                 .allowedMethods("*")
                 .maxAge(3600L)
                 .allowedHeaders("*")
-                .exposedHeaders("*")
-                .allowCredentials(true);
+                .exposedHeaders("*");
     }
 
 }
